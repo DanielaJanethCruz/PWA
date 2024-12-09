@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <title>PWA App</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/assets/icon.png" alt="Logo">
+            <span>PWA</span>
+        </div>
+        <div class="links">
+            <a href="page1.html"><img src="/assets/star.png" alt="pagina1"></a>
+            <a href="page2.html"><img src="/assets/reno.png" alt="pagina2"></a>
+        </div>
+    </nav>    
+    <div class="media-container">
+        <video id="camera" autoplay playsinline></video>
+        <canvas id="snapshot"></canvas>
+    </div>    
+    <div class="buttons">
+        <button id="capture-btn">Capturar imagen</button>
+        <button id="notify-btn">Enviar notificación</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Página 1</title>
+    <style>
+        /* Centrar el cuerpo de la página */
+        body {
+            margin: 0;
+            background-color: #76584C;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding-top: 70px; /* Espacio para la barra de navegación */
+            box-sizing: border-box;
+        }
+
+        /* Barra de navegación fija en la parte superior */
+        nav {
+            background-color: #1D2E19;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Asegura que la barra quede por encima del contenido */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #CFCABF;
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav .logo span {
+            color: #CFCABF;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        nav .links a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo del contenedor de la carta */
+        .card {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
+            background-color: #f8f8f8;
+            background-size: cover;
+            color: black; /* Color de texto negro */
+            margin-top: 300px; /* Agregar un pequeño margen para separarlo del navbar */
+        }
+
+        /* Estilo de las preguntas y respuestas */
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 18px;
+        }
+
+        .answer label {
+            display: block;
+            margin: 8px 0;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: #5E0001;
+            color: #CFCABF;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Desactivación de las preguntas después de responder */
+        .disabled input {
+            pointer-events: none;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="/assets/icon.png" alt="Logo">
+            <span>PWA</span>
+        </div>
+        <div class="links">
+            <a href="page1.html"><img src="/assets/star.png" alt="pagina1"></a>
+            <a href="page2.html"><img src="/assets/reno.png" alt="pagina2"></a>
+        </div>
+    </nav>
+
+    <div class="card">
+        <h1>Cuestionario de Navidad</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. ¿En qué día se celebra la Navidad?</p>
+                <label class="answer"><input type="radio" name="q1" value="incorrecto"> 24 de diciembre</label><br>
+                <label class="answer"><input type="radio" name="q1" value="correcto"> 25 de diciembre</label><br>
+                <label class="answer"><input type="radio" name="q1" value="incorrecto"> 31 de diciembre</label>
+            </div>
+            <div class="question">
+                <p>2. ¿Quién trae los regalos a los niños en la Navidad?</p>
+                <label class="answer"><input type="radio" name="q2" value="incorrecto"> El conejo de Pascua</label><br>
+                <label class="answer"><input type="radio" name="q2" value="correcto"> Papá Noel</label><br>
+                <label class="answer"><input type="radio" name="q2" value="incorrecto"> Los Reyes Magos</label>
+            </div>
+            <div class="question">
+                <p>3. ¿Qué árbol es tradicionalmente utilizado durante la Navidad?</p>
+                <label class="answer"><input type="radio" name="q3" value="incorrecto"> Árbol de manzano</label><br>
+                <label class="answer"><input type="radio" name="q3" value="correcto"> Árbol de Navidad</label><br>
+                <label class="answer"><input type="radio" name="q3" value="incorrecto"> Árbol de pino</label>
+            </div>
+            <div class="question">
+                <p>4. ¿Qué comida es común en muchas cenas de Navidad?</p>
+                <label class="answer"><input type="radio" name="q4" value="correcto"> Pavo</label><br>
+                <label class="answer"><input type="radio" name="q4" value="incorrecto"> Pizza</label><br>
+                <label class="answer"><input type="radio" name="q4" value="incorrecto"> Hamburguesa</label>
+            </div>
+            <div class="question">
+                <p>5. ¿Cuál es el nombre del reno que tiene la nariz roja?</p>
+                <label class="answer"><input type="radio" name="q5" value="correcto"> Rudolph</label><br>
+                <label class="answer"><input type="radio" name="q5" value="incorrecto"> Blitzen</label><br>
+                <label class="answer"><input type="radio" name="q5" value="incorrecto"> Comet</label>
+            </div>
+            <button type="button" onclick="checkAnswers()">Enviar respuestas</button>
+            <a href="index.html"><button type="button">Volver a Inicio</button></a>
+        </form>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            const form = document.forms['quizForm'];
+
+            // Verificar las respuestas de las preguntas
+            if (form['q1'].value === 'correcto') score++;
+            if (form['q2'].value === 'correcto') score++;
+            if (form['q3'].value === 'correcto') score++;
+            if (form['q4'].value === 'correcto') score++;
+            if (form['q5'].value === 'correcto') score++;
+
+            // Desactivar las opciones de respuesta
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                question.classList.add('disabled');
+            });
+
+            // Mostrar los resultados
+            alert('Tu puntuación es: ' + score + '/5');
+        }
+    </script>
+
+</body>
+</html>

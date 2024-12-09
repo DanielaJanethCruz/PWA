@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Adviento Navideño</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #F2E0C9;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            background-image: url('https://www.transparenttextures.com/patterns/white-wall.png');
+        }
+
+        header {
+            background-color: #1D2E19;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+            width: 100%;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .day {
+            background-color: #C7A9A1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .day:hover {
+            background-color: #5E0001;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup .close-btn {
+            background-color: #5E0001;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .popup .close-btn:hover {
+            background-color: #3C0001;
+        }
+
+        button {
+            background-color: #5E0001;
+            color: #CFCABF;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #1D2E19;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Asegura que la barra quede por encima del contenido */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #CFCABF;
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav .logo span {
+            color: #CFCABF;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        nav .links a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/assets/icon.png" alt="Logo">
+            <span>PWA</span>
+        </div>
+        <div class="links">
+            <a href="page1.html"><img src="/assets/star.png" alt="pagina1"></a>
+            <a href="page2.html"><img src="/assets/reno.png" alt="pagina2"></a>
+        </div>
+    </nav>
+
+<header>
+    <h1>Calendario de Adviento</h1>
+    <p>¡Descubre una sorpresa cada día hasta la Navidad!</p>
+</header>
+
+<div class="calendar">
+    <!-- Días del calendario (24 días) -->
+    <div class="day" data-day="1">1</div>
+    <div class="day" data-day="2">2</div>
+    <div class="day" data-day="3">3</div>
+    <div class="day" data-day="4">4</div>
+    <div class="day" data-day="5">5</div>
+    <div class="day" data-day="6">6</div>
+    <div class="day" data-day="7">7</div>
+    <div class="day" data-day="8">8</div>
+    <div class="day" data-day="9">9</div>
+    <div class="day" data-day="10">10</div>
+    <div class="day" data-day="11">11</div>
+    <div class="day" data-day="12">12</div>
+    <div class="day" data-day="13">13</div>
+    <div class="day" data-day="14">14</div>
+    <div class="day" data-day="15">15</div>
+    <div class="day" data-day="16">16</div>
+    <div class="day" data-day="17">17</div>
+    <div class="day" data-day="18">18</div>
+    <div class="day" data-day="19">19</div>
+    <div class="day" data-day="20">20</div>
+    <div class="day" data-day="21">21</div>
+    <div class="day" data-day="22">22</div>
+    <div class="day" data-day="23">23</div>
+    <div class="day" data-day="24">24</div>
+</div>
+<a href="index.html"><button type="button">Volver a Inicio</button></a>
+<!-- Popup con contenido sorpresa -->
+<div class="popup" id="popup">
+    <h2>Sorpresa del Día</h2>
+    <p id="popupContent">¡Feliz Navidad!</p>
+    <button class="close-btn" onclick="closePopup()">Cerrar</button>
+</div>
+
+<script>
+    const days = document.querySelectorAll('.day');
+    const popup = document.getElementById('popup');
+    const popupContent = document.getElementById('popupContent');
+
+    // Contenido sorpresa para cada día
+    const surprises = {
+        1: '¡Bienvenido! Empezamos con una receta navideña.',
+        2: 'Recuerda dar amor a tus seres queridos hoy.',
+        3: 'Escucha una canción de Navidad especial.',
+        4: '¡Un cupón de descuento para ti!',
+        5: 'Prepara una bebida caliente para disfrutar en familia.',
+        6: 'Hoy es el día perfecto para ver una película navideña.',
+        7: 'Haz una manualidad navideña y compártela.',
+        8: 'Hoy te contamos una historia de Navidad.',
+        9: '¡No olvides decorar tu casa!',
+        10: 'Comparte un buen deseo con alguien que lo necesite.',
+        11: 'Aprovecha el día para enviar tarjetas de Navidad.',
+        12: 'Recuerda a tus amigos y familiares con un mensaje.',
+        13: 'Hoy es un buen día para hornear galletas navideñas.',
+        14: '¡Es tiempo de elegir tus canciones navideñas favoritas!',
+        15: 'Recuerda el verdadero significado de la Navidad.',
+        16: '¡Haz algo especial por alguien hoy!',
+        17: 'Hoy es perfecto para reflexionar sobre lo que has aprendido este año.',
+        18: 'Disfruta de un día con tus seres queridos.',
+        19: 'Es tiempo de compartir una sonrisa.',
+        20: 'Haz una lista de tus deseos para el próximo año.',
+        21: '¡Es hora de pensar en los regalos para Navidad!',
+        22: 'Haz una buena acción por alguien.',
+        23: 'Prepara todo para la Nochebuena.',
+        24: '¡Feliz Navidad! Disfruta de tu día con los tuyos.'
+    };
+
+    // Abre el popup con la sorpresa del día
+    days.forEach(day => {
+        day.addEventListener('click', function() {
+            const dayNumber = this.getAttribute('data-day');
+            popupContent.textContent = surprises[dayNumber] || 'Este es un mensaje navideño para ti.';
+            popup.style.display = 'block';
+        });
+    });
+
+    // Cerrar el popup
+    function closePopup() {
+        popup.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

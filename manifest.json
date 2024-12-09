@@ -1,0 +1,36 @@
+{
+  "name": "Mi Aplicación PWA",
+  "short_name": "PWA",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "Esta es una aplicación PWA con notificaciones, modo offline y uso de elementos físicos.",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/notify.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/reno.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/santa.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/star.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
